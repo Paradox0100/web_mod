@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>M&E's web proxy</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div id="container" class="container">
+            <center>
+                <h1 class="banner">Web Proxy</h1>
+            </center>
+            <div class="urlArea">
+                <input id="urlInput" class="urlInput" type="url" placeholder="ex. https://google.com" autocomplete="off">
+                <button id="submitUrl" class="submitUrl" onclick="submit()">submit</button>
+            </div>
+            <center>
+                <div id="stats" class="stats">
+                    <a id="proxyRequestAmount" class="proxyRequestAmount">World proxy requests handled: 0</a>
+                </div>
+            </center>
+        </div>
+    </body>
+    <script src="index.js"></script>
+</html>

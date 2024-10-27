@@ -1,0 +1,54 @@
+* {
+    background-color: #1d1d1d;
+    color: #FFFCF2;
+    font-family: 'Courier New', monospace;
+}
+.urlInput {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 40px;
+    font-family: 'Courier New', monospace;
+    width: 85%;
+    margin: 5px;
+    background-color: transparent;
+}
+.urlInput:focus {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.urlInput:not(:placeholder-shown) {
+    background-color: transparent; /* Change background color when text is present */
+}
+.banner {
+    font-family: 'Courier New', monospace;
+    font-size: 50px;
+}
+.submitUrl {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 40px;
+    font-family: 'Courier New', monospace;
+    width: 15%;
+    margin: 5px;
+    border: none;
+    background-color: #EF3E36;
+}
+.submitUrl:hover {
+    cursor: pointer;
+}
+.urlArea {
+    display: flex;              /* Use Flexbox to arrange items in a row */
+    flex-direction: row;       /* Ensure items are in a row */
+    justify-content: flex-start; /* Align items to the start */
+    overflow: hidden;          /* Prevent items from shifting out of the container */
+    white-space: nowrap;       /* Prevent wrapping to the next line */
+    width: 100%;               /* Full width */
+    border: none;    /* Optional: border for visibility */
+    box-sizing: border-box;
+    padding: 5px;
+}
+.stats {
+    margin-top: 100px;
+}
