@@ -3,32 +3,26 @@ from flask_cors import CORS
 import requests
 from bs4 import BeautifulSoup
 import os
+import mimetypes
 
 proxyUrl = "http://localhost:5000/autoForward.html?url="
 
 aub = ["http:", "https:", "ftp:", "ftps:", "sftp:"]
 
 def get_content_type(url):
-    if url.endswith('.html'):
-        return 'text/html'
-    elif url.endswith(''):
-        return 'text/html'
-    elif url.endswith('.css'):
-        return 'text/css'
-    elif url.endswith('.js'):
-        return 'application/javascript'
-    elif url.endswith('.png'):
-        return 'image/png'
-    elif url.endswith('.jpg') or url.endswith('.jpeg'):
-        return 'image/jpeg'
-    elif url.endswith('.gif'):
-        return 'image/gif'
-    elif url.endswith('.svg'):
-        return 'image/svg+xml'
-    elif url.endswith('.json'):
-        return 'application/json'
-    else:
-        return 'application/octet-stream'
+    try:
+        response = requests.head(url)
+        content_type = response.headers.get('Content-Type', '')
+        
+        if content_type:
+            return content_type  # Return the content type from the header
+
+    except requests.RequestException as e:
+        print(f"Error fetching URL: {e}")
+
+    # Fallback to extension-based type detection
+    _, ext = os.path.splitext(url)
+    return mimetypes.types_map.get(ext.lower(), 'application/octet-stream')
 
 def webScrape(url):
     print("scraping...")
